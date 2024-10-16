@@ -3,74 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Relationship and Reciprocity Form</title>
+    <title>समाजिक संबंध और आदान-प्रदान</title>
     <link rel="stylesheet" href="questionnaire_style.css">
 </head>
 <body>
 
-    <h2>I. SOCIAL RELATIONSHIP AND RECIPROCITY</h2>
+    <h2>I. समाजिक संबंध और आदान-प्रदान</h2>
 
-    <form action="emotional.html" method="post" onsubmit="return validateForm()">  
+    <form action="emotional_hindi.html" method="post" onsubmit="return validateForm()">  
         <div class="question">
-            <label>1. Poor eye contact <span class="required">*</span></label>
-            <div class="question-description">Difficulty maintaining or unusual eye contact.</div>
+            <label>1. आंखों से संपर्क बहुत कम स्थापित करना <span class="required">*</span></label>
+            
             <div id="poorEyeContact" class="radio-group"></div> <!-- Placeholder for radio buttons -->
         </div>
 
         <div class="question">
-            <label>2. Lack social smile <span class="required">*</span></label>
-            <div class="question-description">Do not smile in response to others' smiles or interactions.</div>
+            <label>2. सामाजिक मुस्कुराहट का अभाव <span class="required">*</span></label>
+            
             <div id="lackSocialSmile" class ="radio-group"></div> <!-- Placeholder for radio buttons -->
         </div>
 
         <div class="question">
-            <label>3. Remain aloof <span class="required">*</span></label>
-            <div class="question-description">Appear withdrawn, self-absorbed, with little social engagement.</div>
+            <label>3. अलग-थलग रहना <span class="required">*</span></label>
+            
             <div id="remainAloof" class="radio-group"></div> <!-- Placeholder for radio buttons -->
         </div>
 
         <div class="question">
-            <label>4. Do not reach out to others <span class="required">*</span></label>
-            <div class="question-description">Do not initiate or respond to social interactions.</div>
+            <label>4. लोगों से स्वयं बढ़कर संपर्क नहीं करना <span class="required">*</span></label>
+            
             <div id="doNotReachOut" class="radio-group"></div> <!-- Placeholder for radio buttons -->
         </div>
 
         <div class="question">
-            <label>5. Inability to relate to people <span class="required">*</span></label>
-            <div class="question-description">Difficulty initiating or maintaining social contact, often indifferent.</div>
+            <label>5. लोगों से भावात्मक सामाजिक संबंध स्थापित न कर पाना <span class="required">*</span></label>
+          
             <div id="inabilityToRelate" class="radio-group"></div> <!-- Placeholder for radio buttons -->
         </div>
 
         <div class="question">
-            <label>6. Inability to respond to cues <span class="required">*</span></label>
-            <div class="question-description">Do not respond appropriately to social/environmental demands.</div>
+            <label>6. सामाजिक या आस-पास के संकेतों पर प्रतिक्रिया न दिखा पाना <span class="required">*</span></label>
+           
             <div id="inabilityToRespond" class="radio-group"></div> <!-- Placeholder for radio buttons -->
         </div>
 
         <div class="question">
-            <label>7. Engage in solitary/repetitive play <span class="required">*</span></label>
-            <div class="question-description">Prefer solitary play and repetitive activities over group interactions.</div>
+            <label>7.  खेल एकाकी या दूसरे जैन वालों होना <span class="required">*</span></label>
+            
             <div id="engageInSolitary" class="radio-group"></div> <!-- Placeholder for radio buttons -->
         </div>
 
         <div class="question">
-            <label>8. Inability to share in play/enjoyment <span class="required">*</span></label>
-            <div class="question-description">Do not engage in shared activities or show joy in social play.</div>
+            <label>8. सामाजिक प्रतिक्रियाओं में बारी-बारी से भाग न ले पाना <span class="required">*</span></label>
+            
             <div id="inabilityToShare" class="radio-group"></div> <!-- Placeholder for radio buttons -->
         </div>
 
         <div class="question">
-            <label>9. Does not maintain peer relationships <span class="required">*</span></label>
-            <div class="question-description">Struggles to maintain relationships with peers. Often finds it difficult to connect and engage with others.</div>
+            <label>9. बराबर के व्यक्तियों के साथ सम्बन्ध न बनाए रख पाना <span class="required">*</span></label>
             <div id="doesNotMaintain" class="radio-group"></div> <!-- Placeholder for radio buttons -->
-        </div>
+        </div>
 
         <!-- Add more questions here if needed -->
        <br>
        <br>
         <div class="button-container">
-            <button class="prev-btn" type="button" onclick="window.location.href='Detailsform2.html'">Previous</button>
-            <button type="submit">Next</button>
+            <button class="prev-btn" type="button" onclick="window.location.href='details_hindi.html'">पिछला(Previous)</button>
+            <button type="submit">अगला(Next)</button>
         </div>
     </form>
 
@@ -78,12 +77,12 @@
     <!-- Custom Modal for Validation Message -->
     <div id="customAlert" class="custom-alert">
         <div class="custom-alert-content">
-            <p>Please answer all the questions before proceeding to the next page.</p>
-            <button class="custom-alert-btn" onclick="closeAlert()">OK</button>
+            <p>कृपया अगले पृष्ठ पर जाने से पहले सभी प्रश्नों का उत्तर दें।</p>
+            <button class="custom-alert-btn" onclick="closeAlert()">ठीक है(OK)</button>
         </div>
     </div>
 
-    <script src="questionnaire_form.js"></script>
+    <script src="questionnaire_form_hindi.js"></script>
 <script>
 // Initialize radio buttons for questions on this page
 window.onload = function() {
@@ -94,7 +93,7 @@ window.onload = function() {
     // Keep the validateNext function as it is
     function validateNext() {
         if (validateForm()) {
-            window.location.href = 'emotional.html'; // Navigate to the next page
+            window.location.href = 'emotional_hindi.html'; // Navigate to the next page
         } else {
             showAlert(); // Show the custom alert if form is not valid
         }

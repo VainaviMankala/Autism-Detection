@@ -9,8 +9,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-        import { getFirestore, doc, setDoc, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-        import { getAuth } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyC_8gFPJrjBhjs4Zj5YDyYcoZQjfl6Amr0",
@@ -24,7 +23,6 @@
 
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-        const auth = getAuth(app);
 
         document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('autismForm').addEventListener('submit', async function (event) {
@@ -36,6 +34,7 @@
                 const dob = document.getElementById('dob').value;
                 const age = document.getElementById('age').value;
                 const examiner = document.getElementById('examiner').value;
+
                 // Store details in Firestore
                 try {
                     const userId = ""; // Replace with the actual user ID
@@ -55,7 +54,6 @@
             });
         });
     </script>
-    
 </head>
 <body>
 
@@ -92,6 +90,9 @@
             <input type="text" id="age" name="age" class="form-control" readonly>
         </div>
 
+        <!-- Error message div placed directly below the Age field -->
+        <div id="error-message" style="color: red; margin-top: 5px;"></div>
+
         <div class="question">
             <label for="examiner">Examiner <span class="required">*</span></label>
             <input type="text" id="examiner" name="examiner" class="form-control" required>
@@ -105,14 +106,19 @@
 
     <script>
         window.onload = function() {
+            // Set system date in the "date" field
             var today = new Date().toISOString().split('T')[0];
             document.getElementById('date').value = today;
+
+            // Set the max date in "dob" field to today's date
             document.getElementById('dob').setAttribute('max', today);
         };
 
+        // Calculate age based on D.O.B. only when a full date is selected
         document.getElementById('dob').addEventListener('change', function() {
             var dobValue = this.value;
 
+            // Ensure full date (YYYY-MM-DD) is provided before calculating age
             if (dobValue.length === 10) {
                 var dob = new Date(dobValue);
                 var today = new Date();
@@ -125,6 +131,7 @@
 
                 document.getElementById('age').value = age;
 
+                // Validate age and show the error message as text
                 if (age <= 2 || age > 9) {
                     document.getElementById('error-message').textContent = 'Age must be between 3 and 9 years.';
                 } else {
@@ -133,6 +140,7 @@
             }
         });
 
+        // Form validation on submit
         document.getElementById('autismForm').addEventListener('submit', function(event) {
             var form = this;
             var allFilled = true;

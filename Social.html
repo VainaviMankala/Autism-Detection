@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Relationship and Reciprocity Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="questionnaire_style.css">
 </head>
 <body>
@@ -59,6 +60,12 @@
             <div id="inabilityToShare" class="radio-group"></div> <!-- Placeholder for radio buttons -->
         </div>
 
+        <div class="question">
+            <label>9. Does not maintain peer relationships <span class="required">*</span></label>
+            <div class="question-description">Struggles to maintain relationships with peers. Often finds it difficult to connect and engage with others.</div>
+            <div id="doesNotMaintain" class="radio-group"></div> <!-- Placeholder for radio buttons -->
+        </div>
+
         <!-- Add more questions here if needed -->
        <br>
        <br>
@@ -81,17 +88,19 @@
 <script>
 // Initialize radio buttons for questions on this page
 window.onload = function() {
-            initializeRadioButtons(['poorEyeContact', 'lackSocialSmile','remainAloof','doNotReachOut','inabilityToRelate','inabilityToRespond','engageInSolitary','inabilityToShare']);
+            initializeRadioButtons(['poorEyeContact', 'lackSocialSmile','remainAloof','doNotReachOut','inabilityToRelate','inabilityToRespond','engageInSolitary','inabilityToShare','doesNotMaintain']);
+            updateScore(); // Initialize score display
         };    
-
-        function validateNext() {
-            if (validateForm()) {
-                window.location.href = 'emotional.html'; // Navigate to the next page
-            } else {
-                showAlert(); // Show the custom alert if form is not valid
-            }
+    // The window.onload function is now in the questionnaire_form.js file, so we can remove it from here
+    // Keep the validateNext function as it is
+    function validateNext() {
+        if (validateForm()) {
+            window.location.href = 'emotional.html'; // Navigate to the next page
+        } else {
+            showAlert(); // Show the custom alert if form is not valid
         }
-    </script>
+    }
+</script>
 
 </body>
 </html>

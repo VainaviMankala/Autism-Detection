@@ -1,14 +1,13 @@
-const radioOptions = ["Rarely", "Sometimes", "Frequently", "Mostly", "Always"];
+const radioOptions = ["बिलकुल नहीं", "कभी-कभी", "बार-बार", "अधिकतर", "हमेशा"];
 
 // Scoring system
 const scoreValues = {
-  Rarely: 1,
-  Sometimes: 2,
-  Frequently: 3,
-  Mostly: 4,
-  Always: 5,
-};
-
+    "बिलकुल नहीं": 1,
+    "कभी-कभी": 2,
+    "बार-बार": 3,
+    "अधिकतर": 4,
+    "हमेशा": 5,
+  };
 function generateRadioButtons(questionId) {
   const radioGroup = document.getElementById(questionId);
   radioOptions.forEach((option) => {
@@ -84,10 +83,7 @@ function updateScore() {
     scoreDisplay.style.fontWeight = "bold";
     document.querySelector("form").appendChild(scoreDisplay);
   }
-  scoreDisplay.textContent = `Current Score: ${totalScore} out of ${maxPossibleScore} (${scorePercentage.toFixed(
+  scoreDisplay.textContent = `वर्तमान स्कोर: ${totalScore} out of ${maxPossibleScore} (${scorePercentage.toFixed(
     2
   )}%)`;
-
-  // Store score in localStorage with a unique key for this domain
-  localStorage.setItem("socialRelationshipScore", totalScore); // Use a unique key for each domain
 }

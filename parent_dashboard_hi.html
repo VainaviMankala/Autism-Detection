@@ -135,11 +135,7 @@
             showLoading();
             try {
                 // Check language selection first
-                if (!checkLanguageSelection()) {
-                    window.location.href = 'select_language.html';
-                    return;
-                }
-
+                
                 const selectedLanguage = localStorage.getItem('selectedLanguage');
                 
                 // Check if we're on the correct language page
